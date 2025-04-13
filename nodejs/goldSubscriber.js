@@ -31,7 +31,7 @@ class GoldPriceSubscriber {
         // WebSocket服务器地址
         this.wsUrl = 'wss://api.itick.org/fws';
         // 认证令牌
-        this.authToken = 'a5ca43babf5e49c4b734bdcb6f51a4a4465d52bd3fbe48e1847ac9259ae290c8';
+        this.authToken = '***替换APIKey 请在 itick.io 官网申请***';
         // 订阅的交易对符号
         this.symbol = 'XAUUSD';
         // WebSocket连接实例
