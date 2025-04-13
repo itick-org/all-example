@@ -1,0 +1,13 @@
+{
+  "name": "gold-price-subscriber",
+  "version": "1.0.0",
+  "description": "Gold price WebSocket subscriber",
+  "main": "goldSubscriber.js",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "ws": "^8.16.0",
+    "winston": "^3.12.0"
+  }
+}
