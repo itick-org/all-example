@@ -24,7 +24,7 @@
 ```properties
 # API 配置
 itick.api.base-url=https://api.itick.org
-itick.api.websocket-url=wss://api.itick.org/sws
+itick.api.websocket-url=wss://api.itick.org/stock
 itick.api.token=your-api-token-here
 ```
 
