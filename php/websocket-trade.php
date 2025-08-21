@@ -7,7 +7,7 @@ use React\EventLoop\Loop;
 // 加载配置
 $config = [
     'api_key' => getenv('ITICK_API_KEY') ?: 'api_key', // 建议使用环境变量
-    'websocket_url' => 'wss://api.itick.org/fws',
+    'websocket_url' => 'wss://api.itick.org/forex',
     'symbol' => 'EURUSD',
     'types' => 'depth,quote'
 ];
