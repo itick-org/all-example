@@ -29,7 +29,7 @@ const logger = winston.createLogger({
 class GoldPriceSubscriber {
     constructor() {
         // WebSocket服务器地址
-        this.wsUrl = 'wss://api.itick.org/fws';
+        this.wsUrl = 'wss://api.itick.org/forex';
         // 认证令牌
         this.authToken = '***替换APIKey 请在 itick.io 官网申请***';
         // 订阅的交易对符号
