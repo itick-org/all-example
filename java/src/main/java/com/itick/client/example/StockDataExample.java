@@ -77,7 +77,7 @@ public class StockDataExample implements CommandLineRunner {
         
         // 订阅ETHUSDT的报价数据
         log.info("正在订阅ETHUSDT的报价数据...");
-        webSocketClientService.subscribe("ETHUSDT", "quote");
+        webSocketClientService.subscribe("ETHUSDT$ba", "quote");
         
         try {
             // 等待一些数据或30秒后超时
