@@ -1,6 +1,7 @@
 package com.itick.client.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itick.client.model.websocket.*;
@@ -52,6 +53,7 @@ public class WebSocketClientService extends TextWebSocketHandler {
      */
     @PostConstruct
     public void init() {
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         connect();
     }
 
@@ -71,10 +73,10 @@ public class WebSocketClientService extends TextWebSocketHandler {
     public void connect() {
         try {
             StandardWebSocketClient client = new StandardWebSocketClient();
-            session = client.execute(this, null, URI.create(webSocketUrl)).get();
+            String webSocketUrlTmp = String.format("%s?token=%s",webSocketUrl,apiToken);
+            session = client.execute(this, null, URI.create(webSocketUrlTmp)).get();
             log.info("WebSocket连接已建立");
             Thread.sleep(1000);
-            authenticate();
         } catch (Exception e) {
             log.error("连接WebSocket服务器失败", e);
         }
@@ -100,18 +102,6 @@ public class WebSocketClientService extends TextWebSocketHandler {
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws InterruptedException {
 
-    }
-
-    /**
-     * 进行API认证
-     */
-    private void authenticate() {
-        WebSocketMessage authMessage = WebSocketMessage.builder()
-                .ac("auth")
-                .params(apiToken)
-                .build();
-        
-        sendMessage(authMessage);
     }
 
     /**
